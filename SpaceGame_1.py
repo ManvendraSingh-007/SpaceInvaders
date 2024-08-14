@@ -21,7 +21,7 @@ resized_background = pyg.transform.scale(backgroundImg, (WINDOW_WIDTH, WINDOW_HE
 
 # Player
 playerImg = pyg.image.load("SpaceInvaders/assets/transparent_2024-08-11T02-23-32.png")
-playerImg = pyg.transform.scale(playerImg, (60, 60))  # Smaller player
+playerImg = pyg.transform.scale(playerImg, (60, 60))
 playerX = WINDOW_WIDTH // 2 - 30
 playerY = WINDOW_HEIGHT - 80
 playerXchange = 0
@@ -33,7 +33,7 @@ enemyY = []
 enemyXchange = []
 enemyYchange = []
 enemy_mask = []
-number_of_enemies = 12  # Increased number of enemies
+number_of_enemies = 12  # Change this to change number of enemies
 
 for i in range(number_of_enemies):
     enemy_img = pyg.image.load("SpaceInvaders/assets/enemy-Photoroom.png")
@@ -106,8 +106,8 @@ def show_game_over_screen():
     play_again_text = font.render("Press ENTER to Play Again", True, text_color)
     
     window.blit(game_over_text, (WINDOW_WIDTH // 2 - 200, WINDOW_HEIGHT // 2 - 100))
-    window.blit(score_text, (WINDOW_WIDTH // 2 - 100, WINDOW_HEIGHT // 2))
-    window.blit(play_again_text, (WINDOW_WIDTH // 2 - 150, WINDOW_HEIGHT // 2 + 100))
+    window.blit(score_text, (WINDOW_WIDTH // 2 - 100, WINDOW_HEIGHT // 2 +100))
+    window.blit(play_again_text, (WINDOW_WIDTH // 2 - 200, WINDOW_HEIGHT // 2  -10))
 
     pyg.display.update()
 
@@ -138,7 +138,7 @@ clock = pyg.time.Clock()
 running = True
 game_over = False
 last_bullet_time = 0
-bullet_cooldown = 500                                  # 0.5 seconds between shots
+bullet_cooldown = 500
 
 # ...
 
@@ -184,7 +184,7 @@ while running:
 
 # ...
 
-# ...a
+# ...
 
 # ...
 
@@ -225,7 +225,7 @@ while running:
 
             enemyDraw(enemyX[i], enemyY[i], i)
 
-        # Power-up logic (now rarer and shorter duration)
+        # Power-up logic
         if not powerup_active:
             powerupY += powerupYchange
             window.blit(powerupImg, (powerupX, powerupY))
